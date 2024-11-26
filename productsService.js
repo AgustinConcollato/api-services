@@ -19,7 +19,7 @@ export class Products {
 
         if (name) url.searchParams.set('name', name)
         if (category) url.searchParams.set('category', category)
-        if (subcategory) url.searchParams.set('category', subcategory)
+        if (subcategory) url.searchParams.set('subcategory', subcategory)
 
         url.searchParams.set('page', page);
 
