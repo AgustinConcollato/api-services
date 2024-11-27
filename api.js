@@ -16,6 +16,8 @@ export const api = {
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
+
+
 export const url = new URL(apiUrl)
 export const urlStorage = new URL(apiUrl + '/storage')
 export const urlProducts = new URL(url + '/products')
