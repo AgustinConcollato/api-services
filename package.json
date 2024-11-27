@@ -3,7 +3,6 @@
     "version": "1.0.3",
     "main": "api.js",
     "dependencies": {
-        "api-services": "github:AgustinConcollato/api-services#master",
-        "dotenv": "^16.4.5"
+        "api-services": "github:AgustinConcollato/api-services#master"
     }
 }

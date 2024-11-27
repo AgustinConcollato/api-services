@@ -14,11 +14,11 @@ export const api = {
     Clients
 }
 
-const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const apiUrl = import.meta.env.DEV ? 'http://localhost:8000' : 'https://api.bazarrshop.com'
 
-console.log(import.meta.env)
+console.log(apiUrl)
 
-export const url = new URL(apiUrl)
+export const url = new URL(apiUrl + '/api')
 export const urlStorage = new URL(apiUrl + '/storage')
 export const urlProducts = new URL(url + '/products')
 export const urlCategories = new URL(url + '/categories')
