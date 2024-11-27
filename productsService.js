@@ -6,6 +6,7 @@ export class Products {
         url.searchParams.delete('subcategory');
         url.searchParams.delete('page');
         url.searchParams.delete('name');
+        this.token = localStorage.getItem('authToken')
     }
 
     async search({ options = {}, id = null }) {
@@ -33,7 +34,8 @@ export class Products {
                 method: 'POST',
                 headers: {
                     'X-CSRF-TOKEN': token,
-                    'X-Requested-With': 'XMLHttpRequest'
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Authorization': `Bearer ${this.token}`
                 },
                 body: data,
                 credentials: 'include'
@@ -57,7 +59,8 @@ export class Products {
             const response = await fetch(`${url}/${id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.token}`
                 },
                 body: JSON.stringify(data)
             });
@@ -91,7 +94,10 @@ export class Products {
 
     async delete({ id }) {
         const response = await fetch(`${url}/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Authorization': `Bearer ${this.token}`
+            }
         });
 
         return await response.json();
