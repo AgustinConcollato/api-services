@@ -14,9 +14,10 @@ export const api = {
     Clients
 }
 
-const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+require('dotenv').config();
+const apiUrl = process.env.API_URL;
 
-console.log(import.meta.env)
+console.log(`Conectando a la API en: ${apiUrl}`);
 
 export const url = new URL(apiUrl)
 export const urlStorage = new URL(apiUrl + '/storage')
