@@ -14,8 +14,8 @@ export const api = {
     Clients
 }
 
-export const url = new URL('http://localhost:8000/api')
-export const urlStorage = new URL('http://localhost:8000/storage')
+export const url = new URL('https://api.bazarrshop.com/api')
+export const urlStorage = new URL('https://api.bazarrshop.com/storage')
 export const urlProducts = new URL(url + '/products')
 export const urlCategories = new URL(url + '/categories')
 export const urlOrder = new URL(url + '/order')
