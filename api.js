@@ -14,9 +14,9 @@ export const api = {
     Clients
 }
 
-const apiUrl = import.meta.env.VITE_API_URL;
+const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
 
-console.log(apiUrl)
+console.log(import.meta.env)
 
 export const url = new URL(apiUrl)
 export const urlStorage = new URL(apiUrl + '/storage')
