@@ -14,8 +14,10 @@ export const api = {
     Clients
 }
 
-export const url = new URL('https://api.bazarrshop.com/api')
-export const urlStorage = new URL('https://api.bazarrshop.com/storage')
+const apiUrl = import.meta.env.VITE_API_URL;
+
+export const url = new URL(apiUrl)
+export const urlStorage = new URL(apiUrl + '/storage')
 export const urlProducts = new URL(url + '/products')
 export const urlCategories = new URL(url + '/categories')
 export const urlOrder = new URL(url + '/order')
