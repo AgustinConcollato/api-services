@@ -16,8 +16,6 @@ export const api = {
 
 const apiUrl = import.meta.env.DEV ? 'http://localhost:8000' : 'https://api.bazarrshop.com'
 
-console.log(apiUrl)
-
 export const url = new URL(apiUrl + '/api')
 export const urlStorage = new URL(apiUrl + '/storage')
 export const urlProducts = new URL(url + '/products')

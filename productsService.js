@@ -16,11 +16,12 @@ export class Products {
             return await response.json();
         }
 
-        const { page, category, name, subcategory } = options;
+        const { page, category, name, subcategory, panel = null } = options;
 
         if (name) url.searchParams.set('name', name)
         if (category) url.searchParams.set('category', category)
         if (subcategory) url.searchParams.set('subcategory', subcategory)
+        if (panel) url.searchParams.set('panel', true)
 
         url.searchParams.set('page', page);
 
