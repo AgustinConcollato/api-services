@@ -6,6 +6,7 @@ export class Products {
         url.searchParams.delete('subcategory');
         url.searchParams.delete('page');
         url.searchParams.delete('name');
+        url.searchParams.delete('panel');
         this.token = localStorage.getItem('authToken')
     }
 
