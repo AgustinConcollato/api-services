@@ -5,7 +5,7 @@ export class ShoppingCart {
 
     async add(data) {
 
-        const response = fetch(urlShoppingCart, {
+        const response = await fetch(urlShoppingCart, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -18,7 +18,7 @@ export class ShoppingCart {
 
     async update(data) {
 
-        const response = fetch(urlShoppingCart, {
+        const response = await fetch(urlShoppingCart, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -31,14 +31,14 @@ export class ShoppingCart {
 
     async get(userId) {
 
-        const response = fetch(`${urlShoppingCart}/${userId}`)
+        const response = await fetch(`${urlShoppingCart}/${userId}`)
 
         return await response.json()
     }
 
     async delete({ userId, productId }) {
 
-        const response = fetch(`${urlShoppingCart}/${userId}/${productId}`, {
+        const response = await fetch(`${urlShoppingCart}/${userId}/${productId}`, {
             method: 'DELETE'
         })
 
