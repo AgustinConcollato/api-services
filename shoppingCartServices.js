@@ -44,4 +44,22 @@ export class ShoppingCart {
 
         return await response.json()
     }
+
+    async confirm(data) {
+
+        const response = await fetch(`${urlShoppingCart}/confirm`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+
+        if (!response.ok) {
+            throw new Error()
+        }
+
+        const { order_id } = await response.json()
+        return order_id
+    }
 }
