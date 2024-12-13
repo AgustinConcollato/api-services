@@ -30,17 +30,14 @@ export class Products {
         return await response.json();
     }
 
-    async add({ data, token }) {
+    async add({ data }) {
         try {
             const response = await fetch(url, {
                 method: 'POST',
                 headers: {
-                    'X-CSRF-TOKEN': token,
-                    'X-Requested-With': 'XMLHttpRequest',
                     'Authorization': `Bearer ${this.token}`
                 },
-                body: data,
-                credentials: 'include'
+                body: data
             });
 
             if (!response.ok) {
