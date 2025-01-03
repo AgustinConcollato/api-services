@@ -5,7 +5,7 @@ export class Address {
         this.userId = userId
     }
 
-    async get(userId) {
+    async get() {
         try {
             const response = await fetch(`${urlAddress}/${this.userId}`)
 
