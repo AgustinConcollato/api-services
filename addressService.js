@@ -5,6 +5,26 @@ export class Address {
         this.userId = userId
     }
 
+    async add(address) {
+        try {
+            const response = await fetch(urlAddress, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(address)
+            })
+
+            if (!response.ok) {
+                throw new Error('Error al agregar la dirección')
+            }
+
+            return await response.json()
+        } catch (error) {
+            throw new Error(error)
+        }
+    }
+
     async get() {
         try {
             const response = await fetch(`${urlAddress}/${this.userId}`)
