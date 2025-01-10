@@ -73,7 +73,7 @@ export class Products {
 
     async updateImage({ id, data }) {
         try {
-            const response = await fetch(`${url}/${id}`, {
+            const response = await fetch(`${url}/image-update/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${this.token}`
