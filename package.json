@@ -1,6 +1,6 @@
 {
     "name": "api-services",
-    "version": "1.2.6",
+    "version": "1.2.7",
     "main": "api.js",
     "dependencies": {
         "api-services": "github:AgustinConcollato/api-services#master"
