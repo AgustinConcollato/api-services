@@ -72,8 +72,9 @@ export class Products {
     }
 
     async updateImage(id, data) {
-        console.log(data)
-
+        data.forEach((value, key) => {
+            console.log(`${key}:`, value);
+        });
         try {
             const response = await fetch(`${url}/image-update/${id}`, {
                 method: 'PUT',
