@@ -95,6 +95,28 @@ export class Products {
         }
     }
 
+    async deleteImage({ id, index }) {
+        try {
+            const response = await fetch(`${url}/image-delete/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${this.token}`
+                },
+                body: JSON.stringify({ index })
+            });
+
+            if (!response.ok) {
+                throw new Error();
+            }
+
+            return await response.json();
+
+        } catch (error) {
+            throw error;
+        }
+    }
+
     async delete({ id }) {
         const response = await fetch(`${url}/${id}`, {
             method: 'DELETE',
