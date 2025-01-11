@@ -76,10 +76,10 @@ export class Products {
             const response = await fetch(`${url}/image-update/${id}`, {
                 method: 'PUT',
                 headers: {
-                    'content-type': 'aplication/json',
+                    'content-type': 'multipart/form-data',
                     'Authorization': `Bearer ${this.token}`
                 },
-                body: JSON.stringify(data)
+                body: data
             });
 
             if (!response.ok) {
