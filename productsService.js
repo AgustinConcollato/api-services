@@ -53,14 +53,15 @@ export class Products {
         }
     }
 
-    async update(id, data) {
+    async update({ id, data }) {
         try {
             const response = await fetch(`${url}/${id}`, {
                 method: 'PUT',
                 headers: {
+                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${this.token}`
                 },
-                body: data
+                body: JSON.stringify(data)
             });
 
             return await response.json();
@@ -70,16 +71,14 @@ export class Products {
         }
     }
 
-    async updateImage({ id, data }) {
+    async updateImage(id, data) {
         try {
             const response = await fetch(`${url}/image-update/${id}`, {
                 method: 'PUT',
                 headers: {
-                    'content-type': 'multipart/form-data',
                     'Authorization': `Bearer ${this.token}`
                 },
-                body: data,
-                redirect: 'manual'
+                body: data
             });
 
             if (!response.ok) {
