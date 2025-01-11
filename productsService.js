@@ -53,15 +53,14 @@ export class Products {
         }
     }
 
-    async update({ id, data }) {
+    async update(id, data) {
         try {
             const response = await fetch(`${url}/${id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${this.token}`
                 },
-                body: JSON.stringify(data)
+                body: data
             });
 
             return await response.json();
@@ -79,7 +78,8 @@ export class Products {
                     'content-type': 'multipart/form-data',
                     'Authorization': `Bearer ${this.token}`
                 },
-                body: data
+                body: data,
+                redirect: 'manual'
             });
 
             if (!response.ok) {
