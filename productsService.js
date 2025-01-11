@@ -72,6 +72,8 @@ export class Products {
     }
 
     async updateImage(id, data) {
+        console.log(data)
+
         try {
             const response = await fetch(`${url}/image-update/${id}`, {
                 method: 'PUT',
