@@ -72,12 +72,9 @@ export class Products {
     }
 
     async updateImage(id, data) {
-        data.forEach((value, key) => {
-            console.log(`${key}:`, value);
-        });
         try {
             const response = await fetch(`${url}/image-update/${id}`, {
-                method: 'PUT',
+                method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${this.token}`
                 },
@@ -85,8 +82,7 @@ export class Products {
             });
 
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(JSON.stringify(errorData));
+                throw new Error();
             }
 
             return await response.json();
