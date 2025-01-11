@@ -71,9 +71,12 @@ export class Products {
         }
     }
 
-    async updateImage(id, data) {
+    async updateImage({ id, data, type }) {
+
+        const urlUpdateImages = type == 'add' ? `${url}/image-add/${id}` : `${url}/image-update/${id}`
+
         try {
-            const response = await fetch(`${url}/image-update/${id}`, {
+            const response = await fetch(urlUpdateImages, {
                 method: 'POST',
                 headers: {
                     'Authorization': `Bearer ${this.token}`
@@ -88,7 +91,6 @@ export class Products {
             return await response.json();
 
         } catch (error) {
-            console.error('Error en la solicitud:', JSON.parse(error.message));
             throw error;
         }
     }
