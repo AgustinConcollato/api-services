@@ -8,6 +8,7 @@ export class Products {
         url.searchParams.delete('name');
         url.searchParams.delete('panel');
         url.searchParams.delete('date');
+        url.searchParams.delete('views');
         this.token = localStorage.getItem('authToken')
     }
 
@@ -18,13 +19,14 @@ export class Products {
             return await response.json();
         }
 
-        const { page, category, name, subcategory, panel = null, date } = options;
+        const { page, category, name, subcategory, panel = null, date, views } = options;
 
         if (name) url.searchParams.set('name', name)
         if (category) url.searchParams.set('category', category)
         if (subcategory) url.searchParams.set('subcategory', subcategory)
         if (panel) url.searchParams.set('panel', true)
         if (date) url.searchParams.set('date', date)
+        if (views) url.searchParams.set('views', views)
 
         url.searchParams.set('page', page);
 
