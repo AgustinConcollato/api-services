@@ -48,6 +48,16 @@ export class Order {
         return await response.json()
     }
 
+    async getAll(userId) {
+        try {
+            const response = await fetch(`${url}/user/${userId}`)
+            const orders = await response.json()
+            return orders
+        } catch (error) {
+            console.log('error al obtener todos los pedidos', error)
+        }
+    }
+
     async get(id) {
         try {
             const response = await fetch(`${url}/${id}`)
